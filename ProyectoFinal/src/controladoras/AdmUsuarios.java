@@ -1,10 +1,12 @@
 
 package controladoras;
-
+import java.util.Date;
 import java.util.ArrayList;
 import modelos.Usuario;
 
 public class AdmUsuarios {
+    
+    private Date fechaIngreso;
     
     private ArrayList<Usuario> dbUsuarios=new ArrayList<Usuario>();
     
