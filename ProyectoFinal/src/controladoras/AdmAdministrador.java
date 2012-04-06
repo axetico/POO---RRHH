@@ -55,7 +55,7 @@ grabar();}
 public void cargar(){
 try{
 String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
-int cod=0;
+
 BufferedReader br= new BufferedReader(new FileReader("administrador.txt"));
 while((linea=br.readLine())!=null){
   StringTokenizer st= new StringTokenizer(linea,",");

@@ -10,19 +10,19 @@ package modelos;
  */
 public class TareasG {
     private String asunto;
-    private String FechaV;
+    private String fVencimiento;
     private String responsable;
     private String comentario;
 
-    public TareasG(String asunto, String FechaV, String responsable, String comentario) {
+    public TareasG(String asunto, String fVencimiento, String responsable, String comentario) {
         this.asunto = asunto;
-        this.FechaV = FechaV;
+        this.fVencimiento = fVencimiento;
         this.responsable = responsable;
         this.comentario = comentario;
     }
 
-    public String getFechaV() {
-        return FechaV;
+    public String getfVencimiento() {
+        return fVencimiento;
     }
 
     public String getAsunto() {

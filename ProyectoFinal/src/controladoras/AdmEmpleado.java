@@ -66,7 +66,7 @@ grabar();}
 // cargar archivo empleado
 public void cargar(){
 try{
-int cod=0,cat=0;
+
 String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
 BufferedReader br=new BufferedReader(new FileReader("empleados.txt"));	
 while((linea=br.readLine())!=null){

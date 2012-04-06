@@ -52,7 +52,7 @@ grabar();}
 // cargar archivo declaraciones juradas
 public void cargar(){
 try{
-int cod=0,cat=0;
+
 String linea,responsable="",cargo="",fReferencia="",fVencimiento="",comentario="",fDocumento="",nDocumento="";
 BufferedReader br=new BufferedReader(new FileReader("declaracion.txt"));	
 while((linea=br.readLine())!=null){
@@ -65,7 +65,7 @@ while((linea=br.readLine())!=null){
   fDocumento=st.nextToken();
   nDocumento=st.nextToken();
   
-  cat=Integer.parseInt(st.nextToken());
+ 
   d.add(new DeclaracionesJ(responsable,cargo,fReferencia,fVencimiento,comentario,fDocumento,nDocumento));}
 br.close();}
 catch(Exception ex){}

@@ -4,12 +4,11 @@
  */
 package controladoras;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.io.*;
+import java.util.ArrayList;
 import modelos.*;
+
 public class AdmCartaFianza {
     
     private ArrayList<cartaFianza> c;
@@ -50,7 +49,7 @@ grabar();}
 // cargar archivo carta fianza
 public void cargar(){
 try{
-int cod=0,cat=0;
+
 String linea="",banco="",tipo="",proveedor="",fVencimiento="",responsable="",comentario="";
 int numeroCarta=0,numeroContrato=0,numeroProceso=0;
 BufferedReader br=new BufferedReader(new FileReader("carta.txt"));	
@@ -66,7 +65,7 @@ while((linea=br.readLine())!=null){
   responsable=st.nextToken();
   comentario=st.nextToken();
   
-  cat=Integer.parseInt(st.nextToken());
+ 
   c.add(new cartaFianza(numeroCarta,numeroContrato,numeroProceso,banco,tipo,proveedor,fVencimiento,responsable,comentario));}
 br.close();}
 catch(Exception ex){}
