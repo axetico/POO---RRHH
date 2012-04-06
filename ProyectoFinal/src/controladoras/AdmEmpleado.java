@@ -4,7 +4,7 @@
  */
 package controladoras;
 import java.util.ArrayList;
-import modelos.Empleado;
+import modelos.*;
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -71,7 +71,6 @@ String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",f
 BufferedReader br=new BufferedReader(new FileReader("empleados.txt"));	
 while((linea=br.readLine())!=null){
   StringTokenizer st= new StringTokenizer(linea,",");	
-  cod=Integer.parseInt(st.nextToken());
   nombre=st.nextToken();
   apellidoPaterno=st.nextToken();
   apellidoMaterno=st.nextToken();

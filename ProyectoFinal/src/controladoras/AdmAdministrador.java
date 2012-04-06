@@ -5,16 +5,20 @@
 package controladoras;
 
 import java.util.ArrayList;
-import modelos.Administrador;
+import java.io.*;
+import java.util.StringTokenizer;
+import modelos.*;
 
-
-/**
- *
- * @author CARLOS
- */
-public class AdmAdministrador {
+public class AdmAdministrador{
     
-    private ArrayList<Administrador> dbAdministrador=new ArrayList<Administrador>();
+    private ArrayList<Administrador> dbAdministrador;
+    
+    public AdmAdministrador(){
+    dbAdministrador=new ArrayList<Administrador>();	
+    cargar();
+
+}
+    
     
     private void simularTabla(){
         this.dbAdministrador.add(new Administrador("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","administrador","RRHH"));
@@ -22,6 +26,69 @@ public class AdmAdministrador {
          
          
     }
+    // tamaño
+public int tam(){
+return dbAdministrador.size();}
+
+// get
+public Administrador get(int i){
+return dbAdministrador.get(i);}
+
+// ingresar
+public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){	
+dbAdministrador.add(new Administrador(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
+grabar();}
+
+//buscar por dni
+public int buscar(String dni){
+for(int i=0;i<tam();i++)
+ if(dni.equals(dbAdministrador.get(i).getDni()))
+    return i;
+return -1;}
+
+// eliminar
+public void eliminar(String dni){	
+dbAdministrador.remove(buscar(dni));
+grabar();}
+
+// cargar
+public void cargar(){
+try{
+String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
+int cod=0;
+BufferedReader br= new BufferedReader(new FileReader("administrador.txt"));
+while((linea=br.readLine())!=null){
+  StringTokenizer st= new StringTokenizer(linea,",");
+  nombre=st.nextToken();
+  apellidoPaterno=st.nextToken();
+  apellidoMaterno=st.nextToken();
+  dni=st.nextToken();
+  correoE=st.nextToken();
+  fechaIngreso=st.nextToken();
+  userName=st.nextToken();
+  passWord=st.nextToken();
+  confpassWord=st.nextToken();
+  cargo=st.nextToken();
+  rol=st.nextToken();
+  dbAdministrador.add(new Administrador(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
+br.close();}
+catch(Exception ex){}
+}
+
+// grabar
+public void grabar(){
+try{
+PrintWriter pw=new PrintWriter(new FileWriter("administrador.txt"));
+for(int i=0;i<tam();i++){
+    Administrador x=get(i);
+   pw.println(x.getNombre()+","+x.getApellidoPaterno()+","+x.getApellidoMaterno()+","+x.getDni()+","+
+           x.getCorreoE()+","+x.getFechaIngreso()+","+x.getUserName()+","+x.getPassWord()+","+x.getConfpassWord()+","+x.getCargo()+","+x.getRol());	
+}
+pw.close();}
+catch(Exception ex){}	
+}
+
+
     
     public boolean verificarEmpleado(String user){
         if(user!=null){
@@ -54,4 +121,6 @@ public class AdmAdministrador {
        }
        return acceso;
    }
+    
+    
 }
