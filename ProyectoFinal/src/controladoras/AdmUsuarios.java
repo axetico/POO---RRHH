@@ -31,12 +31,12 @@ public Usuario get(int i){
 return dbUsuarios.get(i);	
 }
 
-// tamaño del arreglo Empleados
+// tamaño del arreglo Usuarios
 public int tam(){
 return dbUsuarios.size();}
 
 
-// ingresar datos de Empleados
+// ingresar datos de Usuarios
 public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){
 dbUsuarios.add(new Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
 grabar();
@@ -60,7 +60,7 @@ public void editar(String dni){
 
 grabar();}
 
-// cargar archivo empleado
+// cargar archivo Usuario
 public void cargar(){
 try{
 int cod=0,cat=0;
@@ -79,7 +79,7 @@ while((linea=br.readLine())!=null){
   confpassWord=st.nextToken();
   cargo=st.nextToken();
   rol=st.nextToken();
-  cat=Integer.parseInt(st.nextToken());
+  
   dbUsuarios.add(new Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
 br.close();}
 catch(Exception ex){}

@@ -34,7 +34,7 @@ return dbAdministrador.size();}
 public Administrador get(int i){
 return dbAdministrador.get(i);}
 
-// ingresar
+// ingresar administradores
 public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){	
 dbAdministrador.add(new Administrador(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
 grabar();}
@@ -46,12 +46,12 @@ for(int i=0;i<tam();i++)
     return i;
 return -1;}
 
-// eliminar
+// eliminar por dni
 public void eliminar(String dni){	
 dbAdministrador.remove(buscar(dni));
 grabar();}
 
-// cargar
+// cargar administradores en un txt
 public void cargar(){
 try{
 String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";

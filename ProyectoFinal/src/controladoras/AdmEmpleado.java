@@ -82,7 +82,7 @@ while((linea=br.readLine())!=null){
   confpassWord=st.nextToken();
   cargo=st.nextToken();
   rol=st.nextToken();
-  cat=Integer.parseInt(st.nextToken());
+ 
   dbEmpleados.add(new Empleado(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
 br.close();}
 catch(Exception ex){}
