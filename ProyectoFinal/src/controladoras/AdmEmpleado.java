@@ -13,6 +13,7 @@ import modelos.Empleado;
  * @author CARLOS
  */
 public class AdmEmpleado {
+
     
     private ArrayList<Empleado> dbEmpleados=new ArrayList<Empleado>();
     
@@ -53,4 +54,17 @@ public class AdmEmpleado {
        }
        return acceso;
    }
+    
+    private String generarPassWord(){
+        String password ="";
+        for(int x=0;x<8;x++){
+            int y=(int)(2*Math.random());
+            switch(y){
+                case 0:password+=(int)(10*Math.random());break;
+                default:password+=(char)((122-97+1))*Math.random()+97;
+            }
+        }
+        return password;
+}
+    
 }

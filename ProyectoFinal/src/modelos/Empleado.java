@@ -9,4 +9,10 @@ public class Empleado extends Usuario{
         super(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol);
     }
     
+        
+    
+    
+    
+    
 }
+ 
