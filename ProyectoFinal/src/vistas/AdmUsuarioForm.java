@@ -12,6 +12,7 @@ package vistas;
 import modelos.*;
 import controladoras.*;
 import javax.swing.*;
+
 public class AdmUsuarioForm extends javax.swing.JFrame {
     
     private AdmUsuarios ae = new AdmUsuarios();
@@ -135,7 +136,7 @@ public class AdmUsuarioForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel12.setText("ADMINISTRACION DE USUARIOS");
 
         jButton2.setText("Buscar");
@@ -294,7 +295,13 @@ public class AdmUsuarioForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-// TODO add your handling code here:
+try {
+            if (cargarCuenta()) {
+                JOptionPane.showMessageDialog(this, "Empleado ingresado satisfactoriamente", "Ingresar Empleado", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e);
+        }
 }//GEN-LAST:event_jButton1ActionPerformed
 
 private void txtConfirmarPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarPassWordActionPerformed
@@ -314,23 +321,36 @@ private void txtPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 }//GEN-LAST:event_txtPassWordActionPerformed
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-// TODO add your handling code here:
+
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-// TODO add your handling code here:
+
+            this.txtDni.setEditable(true);
+            this.txtNombre.setEditable(true);
+            this.txtApellidoPaterno.setEditable(true);
+            this.txtApellidoMaterno.setEditable(true);
+            this.txtUserName.setEditable(true);
+            this.txtCorreo.setEditable(true);
+            this.txtFechaIngreso.setEditable(true);
+            this.txtCargo.setEditable(true);
+            this.txtPassWord.setEditable(true);
+            this.txtConfirmarPassWord.setEditable(true);
+            
+            
+                   
 }//GEN-LAST:event_jButton4ActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-/* try {
-            if (cargar()) {
+ try {
+            if (cargarCuenta()) {
                 JOptionPane.showMessageDialog(this, "Empleado ingresado satisfactoriamente", "Ingresar Empleado", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e);
         }
                   
-*/
+  
 }//GEN-LAST:event_jButton3ActionPerformed
 
 private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
@@ -363,112 +383,122 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
      * Carga al Array de empleados desde el fichero
      */
     private void cargarUsuarios() {
-        ae.cargar();
+        ae.grabar();
     }
 
     /*
      * valida que se ingrese cada uno de los datos, ademas valida que el codigo del empleado no exista ya en el fichero e igual para el
      *  No. Seguro Social
      */
-  /*  private boolean cargarCuenta() throws Exception {
+   private boolean cargarCuenta() throws Exception {
         try {
             AdmUsuarios emp = new AdmUsuarios();
             
-            if (this.txtDni.getText().length() > 0) {
-                emp.(this.txtNombre.getText());
+            if (txtDni.getText().length() > 0) {
+                 emp.setDni(txtDni.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el nombre del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Dni ", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
-            if (this.txtApellido.getText().length() > 0) {
-                emp.setApellido(this.txtApellido.getText());
+            if (this.txtNombre.getText().length() > 0) {
+                emp.setNombre(this.txtNombre.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el nombre ", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+            if (this.txtApellidoPaterno.getText().length() > 0) {
+                emp.setApellidoPaterno(this.txtApellidoPaterno.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Paterno", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+             if (this.txtApellidoMaterno.getText().length() > 0) {
+                emp.setApellidoMaterno(this.txtApellidoMaterno.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Materno", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+             if (this.txtUserName.getText().length() > 0) {
+                emp.setUserName(this.txtUserName.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Usuario", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+             if (this.txtCorreo.getText().length() > 0) {
+                emp.setCorreo(this.txtCorreo.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Correo", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+              if (this.txtFechaIngreso.getText().length() > 0) {
+                emp.setFechaIngreso(this.txtFechaIngreso.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar la Fecha de Ingreso", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+              if (this.txtCargo.getText().length() > 0) {
+                emp.setCargo(this.txtCargo.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Cargo", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+              if (this.txtPassWord.getText().length() > 0) {
+                emp.setPassWord(this.txtPassWord.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar la Contraseña", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+              if (this.txtConfirmarPassWord.getText().length() > 0) {
+                emp.setConfpassWord(this.txtConfirmarPassWord.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar confirmacion de contraseña", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
-            if (this.txtSeguroSocial.getText().length() > 0) {
-                int seguro = new Integer(this.txtSeguroSocial.getText()).intValue();
-                if (!this.listaEmpleado.existeNoSeguroSocialEmpleado(seguro)) {
-                    emp.setNihss(seguro);
-                } else {
-                    JOptionPane.showMessageDialog(this, "El no. Seguro Social ingresado ya existe", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                    return false;
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el no. Seguro social del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-            int pos = this.chkTipoEmpleado.getSelectedIndex();
-            if (pos >= 0) {
-                Item item = (Item) this.chkTipoEmpleado.getItemAt(pos);
-                if (item != null) {
-                    if (item.getItemData().equals("1")) {
-                        EmpleadoAsalariado emp_asalariado = new EmpleadoAsalariado(emp);
-                        if (this.txtSueldoSemanal.getText().length() > 0) {
-                            emp_asalariado.setSueldoSemana(new Integer(this.txtSueldoSemanal.getText()).intValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar el Sueldo Semanal del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-                        emp = (Empleado) emp_asalariado;
-                    } else if (item.getItemData().equals("2")) {
-                        EmpleadoPorComision emp_Comision = new EmpleadoPorComision(emp);
-
-                        if (this.txtTasaComision.getText().length() > 0) {
-                            emp_Comision.setTasaComision(new Double(this.txtTasaComision.getText()).doubleValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar la tasa comisión del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-
-                        if (this.txtVentasTotales.getText().length() > 0) {
-                            emp_Comision.setVentasTotales(new Double(this.txtVentasTotales.getText()).doubleValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar las ventas totales del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-                        EmpleadoBaseMasComision empBaseComision = new EmpleadoBaseMasComision(emp_Comision);
-                        if (this.txtSueldoBase.getText().length() > 0) {
-                            empBaseComision.setSalarioBase(new Double(this.txtSueldoBase.getText()).doubleValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar el sueldo base del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-                        emp_Comision = (EmpleadoPorComision) empBaseComision;
-                        emp = (Empleado) emp_Comision;
-                    } else if (item.getItemData().equals("3")) {
-                        EmpleadoPorHoras emp_x_hora = new EmpleadoPorHoras(emp);
-
-                        if (this.txtHorasTrabajadas.getText().length() > 0) {
-                            emp_x_hora.setHorasTrabajadas(new Integer(this.txtHorasTrabajadas.getText()).intValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar las horas trabajadas del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-
-                        if (this.txtSueldoXHora.getText().length() > 0) {
-                            emp_x_hora.setSueldoPorHoras(new Double(this.txtSueldoXHora.getText()).doubleValue());
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Debe Ingresar el sueldo por hora del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
-                            return false;
-                        }
-                        emp = (Empleado) emp_x_hora;
-                    }
-                }
-            }
+            
+           
             //Agrega El empleado al arreglo de empleados
-            listaEmpleado.agregarEmpleado(emp);
+            ae.grabar();
             //Guarda el arreglo de empleados al fichero
-            listaEmpleado.cargarArchivo();
-            txtNoRegistros.setText(String.valueOf(listaEmpleado.getListaEmpleados().size()));
+            ae.cargar();
+           
             limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e);
         }
         return true;
-    }*/
+    }
+   
+   
+//Para editar los textos de administracion de usuarios
+
+public void editable(boolean v){
+txtDni.setEditable(v);
+txtNombre.setEditable(v);
+txtApellidoPaterno.setEditable(v);
+txtApellidoMaterno.setEditable(v);
+txtUserName.setEditable(v);
+txtCorreo.setEditable(v);
+txtFechaIngreso.setEditable(v);
+txtCargo.setEditable(v);
+txtPassWord.setEditable(v);
+txtConfirmarPassWord.setEditable(v);
+cboRol.setEnabled(v);}
+
+// mostrar
+public void mostrar(String dni){
+ae.cargar();
+Usuario x = ae.get(ae.buscar(dni));
+txtDni.setText(x.getDni());
+txtNombre.setText(x.getNombre());
+txtApellidoPaterno.setText(x.getApellidoPaterno());
+txtApellidoMaterno.setText(x.getApellidoMaterno());
+txtUserName.setText(x.getUserName());
+}
+
+
+
     private void limpiar() {
         this.txtDni.setText("");
         this.txtNombre.setText("");

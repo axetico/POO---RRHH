@@ -134,7 +134,42 @@ catch(Exception ex){}
            acceso=true;
        }
        return acceso;
-   }
-   
     }
     
+    public void setDni(String dni) {
+        
+    }
+    public void setNombre(String nombre) {
+    }
+    
+    public void setApellidoPaterno(String apellidoPaterno){
+        
+    }
+    public void setApellidoMaterno(String apellidoMaterno){
+        
+    }
+     
+    public void setUserName(String UserName){
+        
+    }
+    public void setCorreo(String correo){
+        
+    }
+    public void setFechaIngreso(String fechaIngreso){
+        
+    }
+    public void setCargo(String cargo){
+        
+    }
+    
+    public void setPassWord(String passWord){
+        
+    }
+    
+    public void setConfpassWord(String confPassWord){
+        
+    }
+    
+    
+    
+}
