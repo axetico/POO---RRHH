@@ -9,16 +9,23 @@
  * Created on 06-abr-2012, 1:07:37
  */
 package vistas;
-
-/**
- *
- * @author CARLOS
- */
+import modelos.*;
+import controladoras.*;
+import javax.swing.*;
 public class AdmUsuarioForm extends javax.swing.JFrame {
+    
+    private AdmUsuarios ae = new AdmUsuarios();
 
     /** Creates new form AdmUsuarioForm */
     public AdmUsuarioForm() {
         initComponents();
+        inicialiar();
+    }
+
+    private void inicialiar() {
+        limpiar();
+        cargarUsuarios();
+        cargarRol();
     }
 
     /** This method is called from within the constructor to
@@ -30,21 +37,451 @@ public class AdmUsuarioForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellidoPaterno = new javax.swing.JTextField();
+        txtApellidoMaterno = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        txtFechaIngreso = new javax.swing.JTextField();
+        txtCargo = new javax.swing.JTextField();
+        cboRol = new javax.swing.JComboBox();
+        txtPassWord = new javax.swing.JTextField();
+        txtConfirmarPassWord = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jLabel1.setText("DNI-Identificacion");
+
+        jLabel2.setText("Nombre");
+
+        jLabel3.setText("Apellido Paterno");
+
+        jLabel4.setText("Apellido Materno");
+
+        jLabel5.setText("Usuario");
+
+        jLabel6.setText("Correo");
+
+        jLabel7.setText("Fecha de Ingreso");
+
+        jLabel8.setText("Cargo");
+
+        jLabel9.setText("Rol");
+
+        jLabel10.setText("Contraseña");
+
+        jLabel11.setText("Confirmar Contraseña");
+
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDniActionPerformed(evt);
+            }
+        });
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
+        txtApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoPaternoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Validar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        cboRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboRolActionPerformed(evt);
+            }
+        });
+
+        txtPassWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassWordActionPerformed(evt);
+            }
+        });
+
+        txtConfirmarPassWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConfirmarPassWordActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("ADMINISTRACION DE USUARIOS");
+
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Agregar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Editar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Eliminar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10))
+                                    .addGap(24, 24, 24))
+                                .addComponent(jLabel11))
+                            .addComponent(jLabel5))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtApellidoPaterno)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                        .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton1)))
+                                .addGap(39, 39, 39))
+                            .addComponent(txtFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtCargo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPassWord, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtConfirmarPassWord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(326, 326, 326))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(289, 289, 289)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cboRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirmarPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("Ingresar Usuarios");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButton1ActionPerformed
+
+private void txtConfirmarPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarPassWordActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_txtConfirmarPassWordActionPerformed
+
+private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_txtNombreActionPerformed
+
+private void txtApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoPaternoActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_txtApellidoPaternoActionPerformed
+
+private void txtPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassWordActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_txtPassWordActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButton2ActionPerformed
+
+private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jButton4ActionPerformed
+
+private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+/* try {
+            if (cargar()) {
+                JOptionPane.showMessageDialog(this, "Empleado ingresado satisfactoriamente", "Ingresar Empleado", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e);
+        }
+                  
+*/
+}//GEN-LAST:event_jButton3ActionPerformed
+
+private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+
+}//GEN-LAST:event_txtDniActionPerformed
+
+private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+   limpiar(); 
+}//GEN-LAST:event_jButton5ActionPerformed
+
+private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboRolActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_cboRolActionPerformed
+/*
+     * carga el combobox de tipos de cliente
+     */
+    private void cargarRol() {
+        String rol[][] = {{"1", "Administrador"}, {"2", "Empleado"}, {"3", "Usuario"}};
+        int size = rol.length;
+        this.cboRol.removeAllItems();
+        for (int i = 0; i < size; i++) {
+            Rol item = new Rol();
+            item.setItemData(rol[i][0]);
+            item.setItem(rol[i][1]);
+            this.cboRol.addItem(item);
+        }
+    }
+
+    /*
+     * Carga al Array de empleados desde el fichero
+     */
+    private void cargarUsuarios() {
+        ae.cargar();
+    }
+
+    /*
+     * valida que se ingrese cada uno de los datos, ademas valida que el codigo del empleado no exista ya en el fichero e igual para el
+     *  No. Seguro Social
+     */
+  /*  private boolean cargarCuenta() throws Exception {
+        try {
+            AdmUsuarios emp = new AdmUsuarios();
+            
+            if (this.txtDni.getText().length() > 0) {
+                emp.(this.txtNombre.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el nombre del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            if (this.txtApellido.getText().length() > 0) {
+                emp.setApellido(this.txtApellido.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+
+            if (this.txtSeguroSocial.getText().length() > 0) {
+                int seguro = new Integer(this.txtSeguroSocial.getText()).intValue();
+                if (!this.listaEmpleado.existeNoSeguroSocialEmpleado(seguro)) {
+                    emp.setNihss(seguro);
+                } else {
+                    JOptionPane.showMessageDialog(this, "El no. Seguro Social ingresado ya existe", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el no. Seguro social del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+            int pos = this.chkTipoEmpleado.getSelectedIndex();
+            if (pos >= 0) {
+                Item item = (Item) this.chkTipoEmpleado.getItemAt(pos);
+                if (item != null) {
+                    if (item.getItemData().equals("1")) {
+                        EmpleadoAsalariado emp_asalariado = new EmpleadoAsalariado(emp);
+                        if (this.txtSueldoSemanal.getText().length() > 0) {
+                            emp_asalariado.setSueldoSemana(new Integer(this.txtSueldoSemanal.getText()).intValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar el Sueldo Semanal del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+                        emp = (Empleado) emp_asalariado;
+                    } else if (item.getItemData().equals("2")) {
+                        EmpleadoPorComision emp_Comision = new EmpleadoPorComision(emp);
+
+                        if (this.txtTasaComision.getText().length() > 0) {
+                            emp_Comision.setTasaComision(new Double(this.txtTasaComision.getText()).doubleValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar la tasa comisión del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+
+                        if (this.txtVentasTotales.getText().length() > 0) {
+                            emp_Comision.setVentasTotales(new Double(this.txtVentasTotales.getText()).doubleValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar las ventas totales del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+                        EmpleadoBaseMasComision empBaseComision = new EmpleadoBaseMasComision(emp_Comision);
+                        if (this.txtSueldoBase.getText().length() > 0) {
+                            empBaseComision.setSalarioBase(new Double(this.txtSueldoBase.getText()).doubleValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar el sueldo base del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+                        emp_Comision = (EmpleadoPorComision) empBaseComision;
+                        emp = (Empleado) emp_Comision;
+                    } else if (item.getItemData().equals("3")) {
+                        EmpleadoPorHoras emp_x_hora = new EmpleadoPorHoras(emp);
+
+                        if (this.txtHorasTrabajadas.getText().length() > 0) {
+                            emp_x_hora.setHorasTrabajadas(new Integer(this.txtHorasTrabajadas.getText()).intValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar las horas trabajadas del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+
+                        if (this.txtSueldoXHora.getText().length() > 0) {
+                            emp_x_hora.setSueldoPorHoras(new Double(this.txtSueldoXHora.getText()).doubleValue());
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Debe Ingresar el sueldo por hora del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                            return false;
+                        }
+                        emp = (Empleado) emp_x_hora;
+                    }
+                }
+            }
+            //Agrega El empleado al arreglo de empleados
+            listaEmpleado.agregarEmpleado(emp);
+            //Guarda el arreglo de empleados al fichero
+            listaEmpleado.cargarArchivo();
+            txtNoRegistros.setText(String.valueOf(listaEmpleado.getListaEmpleados().size()));
+            limpiar();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e);
+        }
+        return true;
+    }*/
+    private void limpiar() {
+        this.txtDni.setText("");
+        this.txtNombre.setText("");
+        this.txtApellidoPaterno.setText("");
+        this.txtApellidoMaterno.setText("");
+        this.txtUserName.setText("");
+        this.txtCorreo.setText("");
+        this.txtFechaIngreso.setText("");
+        this.txtCargo.setText("");
+        this.txtPassWord.setText("");
+        this.txtConfirmarPassWord.setText("");
+        cargarRol();
+    }
 
     /**
      * @param args the command line arguments
@@ -82,5 +519,33 @@ public class AdmUsuarioForm extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cboRol;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtApellidoMaterno;
+    private javax.swing.JTextField txtApellidoPaterno;
+    private javax.swing.JTextField txtCargo;
+    private javax.swing.JTextField txtConfirmarPassWord;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtFechaIngreso;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPassWord;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

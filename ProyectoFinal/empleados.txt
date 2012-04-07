@@ -1,0 +1,2 @@
+Luis,Cabrera,Hernandez,41713324,lcabrera@hotmail.com,25/03/2012,lcabrera,lu123,lu123,empleado,RRHH
+Paul,Rodriguez,Suarez,43456328,prodriguez@hotmail.com,12/02/2012,prodriguez,p123,p123,empleado,logistica

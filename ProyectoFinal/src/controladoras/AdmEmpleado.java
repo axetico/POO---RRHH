@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package controladoras;
+
 import java.util.ArrayList;
 import modelos.*;
 import java.io.*;
@@ -99,8 +100,7 @@ for(int i=0;i<tam();i++){
 pw.close();}
 catch(Exception ex){}	
 }	
-
-    
+ 
     public boolean verificarEmpleado(String user){
         if(user!=null){
             return true;

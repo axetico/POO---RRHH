@@ -22,7 +22,7 @@ public class AdmAdministrador{
     
     private void simularTabla(){
         this.dbAdministrador.add(new Administrador("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","administrador","RRHH"));
-        this.dbAdministrador.add(new Administrador("Grace","Navarro","Galarza","43456678","gnavarro@hotmail.com","12/02/2012","gnavarro","g123","g123","administrador","logistica"));
+        this.dbAdministrador.add(new Administrador("Sandra","Guerra","Perez","43456678","sguerra@hotmail.com","12/02/2012","sguerra","s123","s123","administrador","logistica"));
          
          
     }

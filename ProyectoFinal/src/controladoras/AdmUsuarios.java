@@ -18,12 +18,17 @@ public class AdmUsuarios {
      dbUsuarios = new ArrayList<Usuario>();	
      cargar();
      }
+     
     
     private void simularTabla(){
-        this.dbUsuarios.add(new Usuario("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","administrador","RRHH"));
-        this.dbUsuarios.add(new Usuario("Grace","Navarro","Galarza","43456678","gnavarro@hotmail.com","12/02/2012","gnavarro","g123","g123","empleado","logistica"));
+        this.dbUsuarios.add(new Usuario("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","usuario","RRHH"));
+        this.dbUsuarios.add(new Usuario("Grace","Navarro","Galarza","43456678","gnavarro@hotmail.com","12/02/2012","gnavarro","g123","g123","usuario","logistica"));
          
          
+    }
+
+    public void setDbUsuarios(ArrayList<Usuario> dbUsuarios) {
+        this.dbUsuarios = dbUsuarios;
     }
     
      // get
@@ -97,7 +102,7 @@ pw.close();}
 catch(Exception ex){}	
 
 }	
-    
+  
     public boolean verificarUsuario(String user){
         if(user!=null){
             return true;
@@ -130,4 +135,6 @@ catch(Exception ex){}
        }
        return acceso;
    }
-}
+   
+    }
+    
