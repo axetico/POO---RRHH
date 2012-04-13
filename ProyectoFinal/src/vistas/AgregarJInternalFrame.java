@@ -148,7 +148,7 @@ public class AgregarJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton5.setText("Eliminar");
+        jButton5.setText("Limpiar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -412,69 +412,87 @@ private void cargarRol() {
         try {
             Usuario emp = new Usuario();
             
-            if (txtDni.getText().length() > 0) {
-                 emp.setDni(txtDni.getText());
+            if (this.txtCodigoUsuario.getText().length() > 0) {
+                int codigo = new Integer(this.txtCodigoUsuario.getText()).intValue();
+                if (!this.ae.existeCodigoUsuario(codigo)) {
+                    emp.setCodigoUsuario(codigo);
+                } else {
+                    JOptionPane.showMessageDialog(this, "El Código de Empleado ingresado ya existe", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el Dni ", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                if (chkGenerar.isSelected()) {
+                    emp.setCodigoUsuario(new Integer(this.ae.generarSecuenciaCodigo()).intValue());
+                } else {
+                    JOptionPane.showMessageDialog(this, "Debe Ingresar el código del empleado", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
+            }
+            
+            
+            
+            if (this.txtDni.getText().length() > 0) {
+                 emp.setDni(this.txtDni.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Dni ", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
             if (this.txtNombre.getText().length() > 0) {
                 emp.setNombre(this.txtNombre.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el nombre ", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el nombre ", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             if (this.txtApellidoPaterno.getText().length() > 0) {
                 emp.setApellidoPaterno(this.txtApellidoPaterno.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Paterno", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Paterno", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
              if (this.txtApellidoMaterno.getText().length() > 0) {
                 emp.setApellidoMaterno(this.txtApellidoMaterno.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Materno", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el apellido Materno", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
              if (this.txtUserName.getText().length() > 0) {
                 emp.setUserName(this.txtUserName.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el Usuario", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Usuario", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
              if (this.txtCorreo.getText().length() > 0) {
                 emp.setCorreoE(this.txtCorreo.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el Correo", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Correo", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
               if (this.txtFechaIngreso.getText().length() > 0) {
                 emp.setFechaIngreso(this.txtFechaIngreso.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar la Fecha de Ingreso", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar la Fecha de Ingreso", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
               if (this.txtCargo.getText().length() > 0) {
                 emp.setCargo(this.txtCargo.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar el Cargo", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar el Cargo", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
               if (this.txtPassWord.getText().length() > 0) {
                 emp.setPassWord(this.txtPassWord.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar la Contraseña", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar la Contraseña", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
               if (this.txtConfirmarPassWord.getText().length() > 0) {
                 emp.setConfpassWord(this.txtConfirmarPassWord.getText());
             } else {
-                JOptionPane.showMessageDialog(this, "Debe Ingresar confirmacion de contraseña", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Debe Ingresar confirmacion de contraseña", "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
-
-            
+                
            
              //Agrega El empleado al arreglo de empleados
             ae.agregarUsuario(emp);

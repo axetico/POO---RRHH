@@ -5,8 +5,10 @@
 package modelos;
 
 import java.io.Serializable;
-
+//consiste en convertir un objeto en una secuencia de bytes para guardarlo en un archivo
 public class Usuarios implements Serializable{
+    // para el manejo de versiones y compatibilidades......... 
+
     private static final long serialVersionUID = 1L;
     private Usuario[] usuarios;
     private int nElementos;

@@ -15,7 +15,7 @@ public class AdmUsuarios implements Serializable{
     private ArrayList<Usuario> dbUsuarios=new ArrayList<Usuario>();
     private void simularTabla(){
         this.dbUsuarios.add(new Usuario(1001,"Carlos","vera","villanueva","41713326","carlosvera2004@hotmail.com","12/04/2012","chaler2010","car123","car123","Empleado","usuario"));
-        this.dbUsuarios.add(new Usuario(1001,"Luis","Perez","Suarez","41713327","lperez@hotmail.com","15/04/2012","luis2010","lu123","lu123","Empleado","administrador"));
+        this.dbUsuarios.add(new Usuario(1002,"Luis","Perez","Suarez","41713327","lperez@hotmail.com","15/04/2012","luis2010","lu123","lu123","Empleado","administrador"));
          
     }
     String rutaArchivo = "Usuario.txt";

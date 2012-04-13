@@ -4,7 +4,7 @@ import java.io.*;
 import modelos.*;
 
 public class AdmUsuarios {
-    
+    //static es compartir el valor de una variable miembro entre objetos de una misma clase
    static Usuarios lista = null;
     //si la lista sufre cambios se escribe en el discoASWS
     static boolean cambios;
@@ -17,7 +17,7 @@ public class AdmUsuarios {
 
     public static void leer() {
         ObjectInputStream ois = null;
-        try {    /* Creaci�n considera dos casos si el archivo existe previamente
+        try {    /* Creacion considera dos casos si el archivo existe previamente
             o no */
             File fichero = new File("empresa.txt");
             if (!fichero.exists()) {
@@ -65,7 +65,7 @@ public class AdmUsuarios {
         boolean eliminado = false;
         boolean error;
 
-        // Mantenimiento
+        // PANEL ADMINISTRACION DE USUARIOS
         try {
             do {
                 System.out.println("MENu");
@@ -80,11 +80,11 @@ public class AdmUsuarios {
                             new InputStreamReader(System.in)).readLine());
                 } while (opcion < 1 || opcion > 4);
                 switch (opcion) {
-                    /* Con el fin de simplificar el ejemplo, se supone que no se 
-                    introducen c�digos repetidos */
+                    /* Con el fin de simplificar este panel, se supone que no se 
+                    introducen codigos repetidos */
                     case 1: // Ingresar Usuarios
-            /* la excepci�n para que vuelva a pedir el dato 
-                        en el caso de que se introduzca un valor no num�rico */
+                        /* la excepcion para que vuelva a pedir el dato 
+                        en el caso de que se introduzca un valor no numerico */
                         do {
                             error = false;
                             try {
@@ -155,8 +155,8 @@ public class AdmUsuarios {
                                 System.out.print("Codigo de usuario : ");
                                 codigo = Short.parseShort(br.readLine());
                             } catch (NumberFormatException ne) {
-                                System.out.println("Valor no v�lido" +
-                                        " (ha de ser un n�mero)");
+                                System.out.println("Valor no valido" +
+                                        " (ha de ser un numero)");
                                 error = true;
                             }
                         } while (error);
@@ -205,6 +205,7 @@ public class AdmUsuarios {
         //si hubo cambios los escribe en el archivo
         try {
             if (cambios) {
+                // Escribir objetos secuencialmente en un archivo, mediante la clase ObjectOutputStream
                 ous = new ObjectOutputStream(new FileOutputStream("empresa.txt"));
                 ous.writeObject(lista);
             }
