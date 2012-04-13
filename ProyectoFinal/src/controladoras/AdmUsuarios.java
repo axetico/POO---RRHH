@@ -1,175 +1,149 @@
 
 package controladoras;
 
+
+import javax.swing.*;
 import java.util.ArrayList;
 import modelos.*;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class AdmUsuarios {
+public class AdmUsuarios implements Serializable{
+      
+    ArrayList usuarios = new ArrayList();
     
-    
-    
-    private ArrayList<Usuario> dbUsuarios;
-    
-    
-    // constructor
-     public AdmUsuarios(){
-     dbUsuarios = new ArrayList<Usuario>();	
-     cargar();
-     }
-     
-    
+    private ArrayList<Usuario> dbUsuarios=new ArrayList<Usuario>();
     private void simularTabla(){
-        this.dbUsuarios.add(new Usuario("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","usuario","RRHH"));
-        this.dbUsuarios.add(new Usuario("Grace","Navarro","Galarza","43456678","gnavarro@hotmail.com","12/02/2012","gnavarro","g123","g123","usuario","logistica"));
-         
+        this.dbUsuarios.add(new Usuario(1001,"Carlos","vera","villanueva","41713326","carlosvera2004@hotmail.com","12/04/2012","chaler2010","car123","car123","Empleado","usuario"));
+        this.dbUsuarios.add(new Usuario(1001,"Luis","Perez","Suarez","41713327","lperez@hotmail.com","15/04/2012","luis2010","lu123","lu123","Empleado","administrador"));
          
     }
+    String rutaArchivo = "Usuario.txt";
 
-    public void setDbUsuarios(ArrayList<Usuario> dbUsuarios) {
-        this.dbUsuarios = dbUsuarios;
+    public void agregarUsuario(Usuario usa) {
+        usuarios.add(usa);
     }
-    
-     // get
-public Usuario get(int i){
-return dbUsuarios.get(i);	
-}
 
-// tamaño del arreglo Usuarios
-public int tam(){
-return dbUsuarios.size();}
+    public void agregarUsuario(int pos, Usuario usa) {
+        usuarios.add(pos, usa);
+    }
 
+    public void eliminarUsuario(int index) {
+        usuarios.remove(index);
+    }
 
-// ingresar datos de Usuarios
-public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){
-dbUsuarios.add(new Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
-grabar();
-}
+    public void cargarArchivo() throws Exception {
+        try {
+            File LinkFile = new File(rutaArchivo); //crea el archivo
+            //si ya existe el archivo lo borra y lo vuelve a crear
+            if (LinkFile.exists()) {
+                LinkFile.delete();
+                LinkFile.createNewFile();
+            }
+            ObjectOutputStream escr = new ObjectOutputStream(new FileOutputStream(rutaArchivo));
+            escr.writeObject(usuarios);
+            escr.close();
+        } catch (IOException e) {
+            throw new IOException("Error al cargar archivo " + e);
+        }
+    }
 
-//buscar empleado por dni
-public int buscar(String dni){
-for(int i=0;i<tam();i++)
- if(dni.equals(dbUsuarios.get(i).getDni()))
-    return i;
-return -1;}
+    public void cargarUsuarios() {
+        try {
+            File LinkFile = new File(rutaArchivo);
+            //verifica que el archivo exista
+            if (LinkFile.exists()) {
 
-// eliminar por dni
-public void eliminar(String dni){	
-dbUsuarios.remove(buscar(dni));
-grabar();}
+                ObjectInputStream lect = new ObjectInputStream(new FileInputStream(rutaArchivo));
+                Object obj = null;
+                obj = lect.readObject();
+                usuarios.clear();
+                usuarios = (ArrayList) obj;
+                lect.close();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al leer archivo " + e, "Error al cargar los Empleados", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            System.out.println(rutaArchivo);
+        }
+    }
 
-//editar por dni
+    public Usuario buscarUsuario(int codigoComparar) {
+        for (int i = 0; i < this.usuarios.size(); i++) {
+            Usuario e = new Usuario();
+            e = (Usuario) this.usuarios.get(i);
+            if (codigoComparar == e.getCodigoUsuario()) {
+                return e;
+            }
+        }
+        return null;
+    }
 
-public void editar(String dni){	
+    public int buscarPosUsuario(int codigoComparar) {
+        for (int i = 0; i < this.usuarios.size(); i++) {
+            Usuario e = new Usuario();
+            e = (Usuario) this.usuarios.get(i);
+            if (codigoComparar == e.getCodigoUsuario()) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-grabar();}
+    public int generarSecuenciaCodigo() {
+        int secuencia = this.usuarios.size() + 1;
+        while (existeCodigoUsuario(secuencia)) {
+            secuencia++;
+        }
+        return secuencia;
+    }
 
-// cargar archivo Usuario
-public void cargar(){
-try{
+    public boolean existeCodigoUsuario(int codigoComparar) {
+        for (int i = 0; i < this.usuarios.size(); i++) {
+            Usuario e = new Usuario();
+            e = (Usuario) this.usuarios.get(i);
+            if (codigoComparar == e.getCodigoUsuario()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
-BufferedReader br=new BufferedReader(new FileReader("usuarios.txt"));	
-while((linea=br.readLine())!=null){
-  StringTokenizer st= new StringTokenizer(linea,",");	
-  nombre=st.nextToken();
-  apellidoPaterno=st.nextToken();
-  apellidoMaterno=st.nextToken();
-  dni=st.nextToken();
-  correoE=st.nextToken();
-  fechaIngreso=st.nextToken();
-  userName=st.nextToken();
-  passWord=st.nextToken();
-  confpassWord=st.nextToken();
-  cargo=st.nextToken();
-  rol=st.nextToken();
-  
-  dbUsuarios.add(new Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
-br.close();}
-catch(Exception ex){}
-}
-// grabar archivo
-public void grabar(){
-try{
-PrintWriter pw= new PrintWriter("usuarios.txt");
-for(int i=0;i<tam();i++){
-    Usuario x=get(i);
-    pw.println(x.getNombre()+","+x.getApellidoPaterno()+","+x.getApellidoMaterno()+","+x.getDni()+","+
-           x.getCorreoE()+","+x.getFechaIngreso()+","+x.getUserName()+","+x.getPassWord()+","+x.getConfpassWord()+","+x.getCargo()+","+x.getRol());	
-}
-pw.close();}
-catch(Exception ex){}	
-
-}	
-  
+    public ArrayList getListaUsuarios() {
+        return usuarios;
+    }
     public boolean verificarUsuario(String user){
+        if(user!=null){
+            return true;
+        }
+           return false;
+    }
+    public boolean verificarPassword(String user){
         if(user!=null){
             return true;
         }
           return false;
     }
     
-    public boolean verificarPassword(String password){
-        if(password!=null){
-            return true;
-        }
-        return false;
-    }
-    
-    public Persona existeUsuario(String userName){
+    public Usuario existeUsuario(String userName){
         simularTabla();
-        Persona usuarioEncontrado=null;
-        for(Persona usuario:dbUsuarios){
-            if(usuario.getUserName().equals(userName))
-               usuarioEncontrado=usuario;         
-         } 
-            return usuarioEncontrado;      
-     }
+        Usuario usuarioEncontrado=null;
+        for(Usuario usuario:dbUsuarios){
+          if(usuario.getUserName().equals(userName))
+              usuarioEncontrado=usuario;
+    }
+        return usuarioEncontrado;
+    }
     
     public boolean validarPassword(String userName, String password){
        boolean acceso=false;
-       Persona usuarioValido=existeUsuario(userName);
+       Usuario usuarioValido=existeUsuario(userName);
        if(usuarioValido.getPassWord().equals(password)){
            acceso=true;
        }
        return acceso;
-    }
+   }
     
-    public void setDni(String dni) {
-        
-    }
-    public void setNombre(String nombre) {
-    }
-    
-    public void setApellidoPaterno(String apellidoPaterno){
-        
-    }
-    public void setApellidoMaterno(String apellidoMaterno){
-        
-    }
-     
-    public void setUserName(String UserName){
-        
-    }
-    public void setCorreo(String correo){
-        
-    }
-    public void setFechaIngreso(String fechaIngreso){
-        
-    }
-    public void setCargo(String cargo){
-        
-    }
-    
-    public void setPassWord(String passWord){
-        
-    }
-    
-    public void setConfpassWord(String confPassWord){
-        
-    }
-    
-    
-    
+   
 }
+    

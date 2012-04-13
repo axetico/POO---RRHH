@@ -20,7 +20,7 @@ public class AdmUsuariosTest {
     }
     @Test
     public void siIngresoElUsuarioDebeAceptarlo(){
-        assertTrue(admUsuarios.verificarUsuario("carlos"));
+        assertTrue(admUsuarios.verificarUsuario("Carlos"));
         System.out.println("Usuario Ingresado");
     }
     
@@ -39,7 +39,7 @@ public class AdmUsuariosTest {
     @Test
     
     public void siElUsuarioNoExisteDebeMandarMensaje(){
-        assertNull(admUsuarios.existeUsuario("csanchez"));
+        assertNull(admUsuarios.existeUsuario("c123"));
         System.out.println("Usuario Inexistente");
        
     }
@@ -47,21 +47,21 @@ public class AdmUsuariosTest {
     @Test
     
     public void siElUsuarioExisteDebeMandarMensaje(){
-        assertNotNull(admUsuarios.existeUsuario("cvera"));
+        assertNotNull(admUsuarios.existeUsuario("chaler2010"));
         System.out.println("Usuario existente");
     }
     
     @Test
     
     public void siElPasswordEsValidoDebeDarmeAcceso(){
-        assertTrue(admUsuarios.validarPassword("cvera","car123"));
+        assertTrue(admUsuarios.validarPassword("chaler2010","car123"));
          System.out.println("Acceso Aceptado");
     }
     
     @Test
     
     public void siElPasswordNoEsValidoNoDebeDarmeAceeso(){
-        assertFalse(admUsuarios.validarPassword("cvera","car124"));
+        assertFalse(admUsuarios.validarPassword("chaler2010","car125"));
          System.out.println("Acceso Denegado");
     }
 }

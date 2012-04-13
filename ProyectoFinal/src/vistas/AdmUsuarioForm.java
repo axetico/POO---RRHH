@@ -383,7 +383,9 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
      * Carga al Array de empleados desde el fichero
      */
     private void cargarUsuarios() {
-        ae.grabar();
+        ae.cargarUsuarios();
+        
+    
     }
 
     /*
@@ -392,7 +394,7 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
      */
    private boolean cargarCuenta() throws Exception {
         try {
-            AdmUsuarios emp = new AdmUsuarios();
+            Usuario emp = new Usuario();
             
             if (txtDni.getText().length() > 0) {
                  emp.setDni(txtDni.getText());
@@ -426,7 +428,7 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                 return false;
             }
              if (this.txtCorreo.getText().length() > 0) {
-                emp.setCorreo(this.txtCorreo.getText());
+                emp.setCorreoE(this.txtCorreo.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Debe Ingresar el Correo", "Ingresar Empleado", JOptionPane.ERROR_MESSAGE);
                 return false;
@@ -458,10 +460,12 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
 
             
            
-            //Agrega El empleado al arreglo de empleados
-            ae.grabar();
+             //Agrega El empleado al arreglo de empleados
+            ae.agregarUsuario(emp);
             //Guarda el arreglo de empleados al fichero
-            ae.cargar();
+            ae.cargarArchivo();
+           
+           
            
             limpiar();
         } catch (Exception e) {
@@ -487,15 +491,15 @@ txtConfirmarPassWord.setEditable(v);
 cboRol.setEnabled(v);}
 
 // mostrar
-public void mostrar(String dni){
-ae.cargar();
+/*public void mostrar(String dni){
+ae.();
 Usuario x = ae.get(ae.buscar(dni));
 txtDni.setText(x.getDni());
 txtNombre.setText(x.getNombre());
 txtApellidoPaterno.setText(x.getApellidoPaterno());
 txtApellidoMaterno.setText(x.getApellidoMaterno());
 txtUserName.setText(x.getUserName());
-}
+}*/
 
 
 

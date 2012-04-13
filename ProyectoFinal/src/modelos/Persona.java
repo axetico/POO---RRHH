@@ -3,75 +3,120 @@ package modelos;
 
 
 public class Persona {
-    String nombre;
-    String apellidoPaterno;
-    String apellidoMaterno;
-    String dni;
-    String correoE;
-    String fechaIngreso;
-    String userName;
-    String passWord;
-    String confpassWord;
-    String cargo;
-    String rol;
+    String Nombre;
+    String ApellidoPaterno;
+    String ApellidoMaterno;
+    String Dni;
+    String CorreoE;
+    String FechaIngreso;
+    String UserName;
+    String PassWord;
+    String ConfpassWord;
+    String Cargo;
+    String Rol;
 
     public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol) {
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoMaterno = apellidoMaterno;
-        this.dni = dni;
-        this.correoE = correoE;
-        this.fechaIngreso = fechaIngreso;
-        this.userName = userName;
-        this.passWord = passWord;
-        this.confpassWord = confpassWord;
-        this.cargo = cargo;
-        this.rol = rol;
+        Nombre = nombre;
+        ApellidoPaterno = apellidoPaterno;
+        ApellidoMaterno = apellidoMaterno;
+        Dni = dni;
+        CorreoE = correoE;
+        FechaIngreso = fechaIngreso;
+        UserName = userName;
+        PassWord = passWord;
+        ConfpassWord = confpassWord;
+        Cargo = cargo;
+        Rol = rol;
     }
 
     public String getApellidoMaterno() {
-        return apellidoMaterno;
+        return ApellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        ApellidoMaterno = apellidoMaterno;
     }
 
     public String getApellidoPaterno() {
-        return apellidoPaterno;
+        return ApellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        ApellidoPaterno = apellidoPaterno;
     }
 
     public String getCargo() {
-        return cargo;
+        return Cargo;
+    }
+
+    public void setCargo(String cargo) {
+        Cargo = cargo;
     }
 
     public String getConfpassWord() {
-        return confpassWord;
+        return ConfpassWord;
+    }
+
+    public void setConfpassWord(String confpassWord) {
+        ConfpassWord = confpassWord;
     }
 
     public String getCorreoE() {
-        return correoE;
+        return CorreoE;
+    }
+
+    public void setCorreoE(String correoE) {
+        CorreoE = correoE;
     }
 
     public String getDni() {
-        return dni;
+        return Dni;
+    }
+
+    public void setDni(String dni) {
+        Dni = dni;
     }
 
     public String getFechaIngreso() {
-        return fechaIngreso;
+        return FechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        FechaIngreso = fechaIngreso;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
     }
 
     public String getPassWord() {
-        return passWord;
+        return PassWord;
+    }
+
+    public void setPassWord(String passWord) {
+        PassWord = passWord;
     }
 
     public String getRol() {
-        return rol;
+        return Rol;
+    }
+
+    public void setRol(String rol) {
+        Rol = rol;
     }
 
     public String getUserName() {
-        return userName;
+        return UserName;
     }
-  
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+   
     
 }

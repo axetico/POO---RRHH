@@ -5,8 +5,17 @@
 package controladoras;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import modelos.*;
 
 public class AdmDeclaracionesJTest {
-    
-}
+     @Test
+    public void siDeclaracionJuradaTieneUnResponsableDevuelveTrue() {
+               AdmDeclaracionesJ admDeclaracionesJ=new AdmDeclaracionesJ();
+               
+               
+              
+        
+    }
+               
+     }
+

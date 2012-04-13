@@ -54,6 +54,7 @@ public void cargar(){
 try{
 
 String linea,responsable="",cargo="",fReferencia="",fVencimiento="",comentario="",fDocumento="",nDocumento="";
+
 BufferedReader br=new BufferedReader(new FileReader("declaracion.txt"));	
 while((linea=br.readLine())!=null){
   StringTokenizer st= new StringTokenizer(linea,",");	
@@ -70,6 +71,7 @@ while((linea=br.readLine())!=null){
 br.close();}
 catch(Exception ex){}
 }
+
 // grabar archivo declaraciones juradas
 public void grabar(){
 try{
@@ -82,5 +84,13 @@ for(int i=0;i<tam();i++){
 pw.close();}
 catch(Exception ex){}	
 }	
+
+public Boolean verificarSiDeclaracionJuradaTieneResponsable(DeclaracionesJ declaracionJ){
+        Boolean succes = false;
+        if (declaracionJ.getResponsable() != null){
+            succes = true;
+        }
+        return succes;
+    }
 
 }

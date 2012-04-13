@@ -22,6 +22,10 @@ public class DeclaracionesJ {
         this.nDocumento = nDocumento;
     }
 
+    public DeclaracionesJ() {
+    }
+    
+
     public String getCargo() {
         return cargo;
     }
