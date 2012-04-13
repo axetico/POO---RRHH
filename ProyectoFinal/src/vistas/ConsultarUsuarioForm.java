@@ -125,7 +125,7 @@ private void lstUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
             Usuario e = new Usuario();
             e = (Usuario) lst.get(i);
             Rol item = new Rol();
-            item.setItem("(" + String.valueOf(e.getCodigoUsuario()) + ") " + e.getDni() + ", " + e.getNombre() + ", " + e.getApellidoPaterno() + "," + e.getApellidoPaterno() + ", " + e.getConfpassWord() + ", " + e.getCargo() + ", " + e.getRol());
+            item.setItem("(" + String.valueOf(e.getCodigoUsuario()) + ") " + e.getDni() + ", " + e.getNombre() + ", " + e.getApellidoPaterno() + "," + e.getApellidoMaterno() + ", " + e.getUserName() + ", " + e.getCorreoE()+ ", " + e.getFechaIngreso()+ ", " + e.getCargo() + ", " + e.getRol()+ ", " + e.getPassWord()+", " + e.getConfpassWord());
             item.setItemData(String.valueOf(e.getCodigoUsuario()));
             modelo.addElement(item);
         }

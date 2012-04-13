@@ -108,11 +108,11 @@ private void menuItemAgregarActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_menuItemAgregarActionPerformed
 
 private void menuItemConsularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsularActionPerformed
-ConsultarEmpleado();
+ConsultarUsuario();
 }//GEN-LAST:event_menuItemConsularActionPerformed
 
 private void menuItemEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEditarActionPerformed
-// TODO add your handling code here:
+EditarUsuario();
 }//GEN-LAST:event_menuItemEditarActionPerformed
 
 private void menuItemeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemeliminarActionPerformed
@@ -137,17 +137,17 @@ private void ingresarUsuario() {
         jDesktopPane1.add(eliminar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         eliminar.pack();
         eliminar.show();
-    }
+    }*/
 
-    private void EditarEmpleado() {
-        JInternalFrameEditarEmp editar = new JInternalFrameEditarEmp();
+    private void EditarUsuario() {
+        EditarJInternalFrame editar = new EditarJInternalFrame();
         editar.setBounds(210, 100, 22, 39);
         jDesktopPane1.add(editar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         editar.pack();
         editar.show();
-    }*/
+    }
 
-    private void ConsultarEmpleado() {
+    private void ConsultarUsuario() {
         ConsultarUsuarioForm consultar = new ConsultarUsuarioForm();
         consultar.setBounds(150, 100, 2, 12);
         jDesktopPane1.add(consultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
