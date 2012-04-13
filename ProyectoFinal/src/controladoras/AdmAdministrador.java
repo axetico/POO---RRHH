@@ -21,8 +21,8 @@ public class AdmAdministrador{
     
     
     private void simularTabla(){
-        this.dbAdministrador.add(new Administrador("Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","administrador","RRHH"));
-        this.dbAdministrador.add(new Administrador("Sandra","Guerra","Perez","43456678","sguerra@hotmail.com","12/02/2012","sguerra","s123","s123","administrador","logistica"));
+        this.dbAdministrador.add(new Administrador(2001,"Carlos","Vera","Villanueva","41713326","carlosvera2004@hotmail.com","25/03/2012","cvera","car123","car123","administrador","RRHH"));
+        this.dbAdministrador.add(new Administrador(2002,"Sandra","Guerra","Perez","43456678","sguerra@hotmail.com","12/02/2012","sguerra","s123","s123","administrador","logistica"));
          
          
     }
@@ -35,8 +35,8 @@ public Administrador get(int i){
 return dbAdministrador.get(i);}
 
 // ingresar administradores
-public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){	
-dbAdministrador.add(new Administrador(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
+public void ingresar(int codigo,String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){	
+dbAdministrador.add(new Administrador(codigo,nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
 grabar();}
 
 //buscar por dni
@@ -55,10 +55,11 @@ grabar();}
 public void cargar(){
 try{
 String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
-
+int codigo=0;
 BufferedReader br= new BufferedReader(new FileReader("administrador.txt"));
 while((linea=br.readLine())!=null){
   StringTokenizer st= new StringTokenizer(linea,",");
+  codigo=Integer.parseInt(st.nextToken());
   nombre=st.nextToken();
   apellidoPaterno=st.nextToken();
   apellidoMaterno=st.nextToken();
@@ -70,7 +71,7 @@ while((linea=br.readLine())!=null){
   confpassWord=st.nextToken();
   cargo=st.nextToken();
   rol=st.nextToken();
-  dbAdministrador.add(new Administrador(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
+  dbAdministrador.add(new Administrador(codigo,nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
 br.close();}
 catch(Exception ex){}
 }
