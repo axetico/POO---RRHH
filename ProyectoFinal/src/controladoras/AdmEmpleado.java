@@ -25,8 +25,8 @@ public class AdmEmpleado {
      }
    
     private void simularTabla(){
-        this.dbEmpleados.add(new Empleado("Luis","Cabrera","Hernandez","41713324","lcabrera@hotmail.com","25/03/2012","lcabrera","lu123","lu123","empleado","RRHH"));
-        this.dbEmpleados.add(new Empleado("Paul","Rodriguez","Suarez","43456328","prodriguez@hotmail.com","12/02/2012","prodriguez","p123","p123","empleado","logistica"));
+        this.dbEmpleados.add(new Empleado(3001,"Luis","Cabrera","Hernandez","41713324","lcabrera@hotmail.com","25/03/2012","lcabrera","lu123","lu123","empleado","RRHH"));
+        this.dbEmpleados.add(new Empleado(3002,"Paul","Rodriguez","Suarez","43456328","prodriguez@hotmail.com","12/02/2012","prodriguez","p123","p123","empleado","logistica"));
              
     }
     
@@ -41,8 +41,8 @@ return dbEmpleados.size();}
 
 
 // ingresar datos de Empleados
-public void ingresar(String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){
-dbEmpleados.add(new Empleado(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
+public void ingresar(int codigo,String nombre, String apellidoPaterno, String apellidoMaterno, String dni, String correoE, String fechaIngreso, String userName, String passWord, String confpassWord, String cargo, String rol){
+dbEmpleados.add(new Empleado(codigo,nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));
 grabar();
 }
 
@@ -69,9 +69,11 @@ public void cargar(){
 try{
 
 String linea,nombre="",apellidoPaterno="",apellidoMaterno="",dni="",correoE="",fechaIngreso="",userName="",passWord="",confpassWord="",cargo="",rol="";
+int codigo=0;
 BufferedReader br=new BufferedReader(new FileReader("empleados.txt"));	
 while((linea=br.readLine())!=null){
-  StringTokenizer st= new StringTokenizer(linea,",");	
+  StringTokenizer st= new StringTokenizer(linea,",");
+  codigo=Integer.parseInt(st.nextToken());
   nombre=st.nextToken();
   apellidoPaterno=st.nextToken();
   apellidoMaterno=st.nextToken();
@@ -84,7 +86,7 @@ while((linea=br.readLine())!=null){
   cargo=st.nextToken();
   rol=st.nextToken();
  
-  dbEmpleados.add(new Empleado(nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
+  dbEmpleados.add(new Empleado(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, correoE, fechaIngreso, userName, passWord, confpassWord, cargo, rol));}
 br.close();}
 catch(Exception ex){}
 }

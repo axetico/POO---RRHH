@@ -368,7 +368,7 @@ private void cboRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
      * carga el combobox de tipos de cliente
      */
     private void cargarRol() {
-        String rol[][] = {{"1", "Administrador"}, {"2", "Empleado"}, {"3", "Usuario"}};
+        String rol[][] = {{"1", "Administrador"}, {"2", "Empleado"}, {"3", "Responsable"}};
         int size = rol.length;
         this.cboRol.removeAllItems();
         for (int i = 0; i < size; i++) {
