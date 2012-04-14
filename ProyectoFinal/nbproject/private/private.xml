@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmDeclaracionesJ.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/DeclaracionesJ.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/test/controladoras/AdmUsuariosTest.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/test/controladoras/AdmTareasGTest.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/test/controladoras/AdmEmpleadoTest.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/test/controladoras/AdmDeclaracionesJTest.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/test/controladoras/AdmAdministradorTest.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmUsuarios.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmTareasG.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmEmpleado.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmAdministrador.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Empleado.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/TareasG.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/login/AdmUsuarios.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Administrador.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/cartaFianza.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/ActualizacionTarea.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Roles.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Fecha.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Usuario.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmCartaFianza.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/controladoras/AdmRoles.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Rol.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Usuarios.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/modelos/Responsable.java</file>
+        <file>file:/C:/Users/CARLOS/Carlos/ProyectoFinal/src/vistas/EditarJInternalFrame.java</file>
+    </open-files>
 </project-private>
