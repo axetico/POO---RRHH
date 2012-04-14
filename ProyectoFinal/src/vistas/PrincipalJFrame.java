@@ -33,6 +33,7 @@ public class PrincipalJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemAgregar = new javax.swing.JMenuItem();
@@ -42,6 +43,12 @@ public class PrincipalJFrame extends javax.swing.JFrame {
         menuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 255, 102));
+        jLabel1.setText("Administracion de Usuarios");
+        jLabel1.setBounds(250, 280, 520, 50);
+        jDesktopPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("Opciones");
 
@@ -116,7 +123,7 @@ EditarUsuario();
 }//GEN-LAST:event_menuItemEditarActionPerformed
 
 private void menuItemeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemeliminarActionPerformed
-// TODO add your handling code here:
+EliminarUsuario();
 }//GEN-LAST:event_menuItemeliminarActionPerformed
 
 private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
@@ -130,14 +137,14 @@ private void ingresarUsuario() {
         agregar.pack();
         agregar.show();
     }
-/*
-    private void EliminarEmpleado() {
-        JInternalFrameEliminarEmp eliminar = new JInternalFrameEliminarEmp();
+
+    private void EliminarUsuario() {
+        EliminarJInternalFrame eliminar = new EliminarJInternalFrame();
         eliminar.setBounds(210, 100, 22, 39);
         jDesktopPane1.add(eliminar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         eliminar.pack();
         eliminar.show();
-    }*/
+    }
 
     private void EditarUsuario() {
         EditarJInternalFrame editar = new EditarJInternalFrame();
@@ -191,6 +198,7 @@ private void ingresarUsuario() {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuItemAgregar;
